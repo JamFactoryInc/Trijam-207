@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - obstacle
+  - Lemming
+  - Spring
+  - SpikeKillBox
   layers:
   - Default
   - TransparentFX
