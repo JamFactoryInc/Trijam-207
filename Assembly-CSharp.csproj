@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlaceableObject.cs" />
+    <Compile Include="Assets\Scripts\Flag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\test.txt" />
