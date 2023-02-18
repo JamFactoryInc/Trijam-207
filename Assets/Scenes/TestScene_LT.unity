@@ -4369,6 +4369,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6609699191455931623, guid: 7fa0cf269e97a1540a88b68ddb6a5834, type: 3}
+      propertyPath: castDir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609699191455931623, guid: 7fa0cf269e97a1540a88b68ddb6a5834, type: 3}
       propertyPath: tileCollider
       value: 
       objectReference: {fileID: 425857793}

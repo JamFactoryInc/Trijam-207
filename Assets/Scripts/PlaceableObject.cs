@@ -8,14 +8,37 @@ public class PlaceableObject : MonoBehaviour
     public TilemapCollider2D tileCollider;
     public LayerMask tileLayer;
 
+    public enum dirs
+    {
+        up, down, left, right
+    };
+    public dirs castDir = dirs.down;
+
     private bool dragging = false;
     private bool placed = false;
     private Vector3 offset;
     private Vector3 startPos;
+    private Vector2 castDirVect;
 
     private void Start()
     {
         startPos = transform.position;
+
+        switch (castDir)
+        {
+            case dirs.up: 
+                castDirVect = Vector2.up;
+                break;
+            case dirs.down:
+                castDirVect = Vector2.down;
+                break;
+            case dirs.left:
+                castDirVect = Vector2.left;
+                break;
+            case dirs.right:
+                castDirVect = Vector2.right;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -43,7 +66,7 @@ public class PlaceableObject : MonoBehaviour
 
     private void OnMouseUp()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, .75f, tileLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, castDirVect, .75f, tileLayer);
 
         if (hit.collider == tileCollider)
         {
