@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Flag : MonoBehaviour
 {
-    public int maxAllowedCollisions = 5;
-
+    public static int maxAllowedCollisions = 5;
+    
     private int collisionCount = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -14,10 +14,14 @@ public class Flag : MonoBehaviour
         if (!collision.gameObject.CompareTag("obstacle"))
         {
             Debug.Log("did not collide with obstacle");
+            collision.collider.enabled = false;
+            collision.rigidbody.gravityScale = 0;
+            collision.gameObject.GetComponent<LemmingController>().Disable();
+            collision.gameObject.GetComponent<Animator>().speed = 0;
             collisionCount++;
             if (collisionCount >= maxAllowedCollisions)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }
