@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class PlaceableObject : MonoBehaviour
 {
+    public static bool placingEnabled = true;
+    
     public TilemapCollider2D tileCollider;
     public LayerMask tileLayer;
 
@@ -44,7 +46,7 @@ public class PlaceableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!placed && dragging)
+        if (!placed && dragging && placingEnabled)
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
         }
