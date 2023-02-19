@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Flag : MonoBehaviour
 {
-    public static int maxAllowedCollisions = 5;
+    [SerializeField]
+    public static int maxAllowedCollisions = 3;
     
     private int collisionCount = 0;
 
@@ -16,7 +17,7 @@ public class Flag : MonoBehaviour
             Debug.Log("did not collide with obstacle");
             collision.collider.enabled = false;
             collision.rigidbody.gravityScale = 0;
-            collision.gameObject.GetComponent<LemmingController>().Disable();
+            collision.gameObject.GetComponent<LemmingController>().Victory();
             collision.gameObject.GetComponent<Animator>().speed = 0;
             collisionCount++;
             if (collisionCount >= maxAllowedCollisions)

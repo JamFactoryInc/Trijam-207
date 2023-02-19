@@ -58,6 +58,12 @@ public class LemmingController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.CompareTag("Lemming"))
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), _collider2D);
+            return;
+        }
+
         if (!isDisabled && !col.gameObject.CompareTag("Spring") && !col.gameObject.CompareTag("SpikeKillBox"))
         {
             
@@ -76,6 +82,12 @@ public class LemmingController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Lemming"))
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), _collider2D);
+            return;
+        }
+
         if (!isDisabled && Mathf.Abs(_rigidbody2D.velocity.y) < 0.1f && collision.contacts.ToList().TrueForAll(p => p.point.y < transform.position.y))
         {
             _rigidbody2D.velocity = new Vector2(speed * rightLeft, _rigidbody2D.velocity.y);
@@ -83,6 +95,11 @@ public class LemmingController : MonoBehaviour
     }
 
     public void Kill()
+    {
+        Destroy(gameObject);
+    }
+
+    public void Victory()
     {
         Destroy(gameObject);
     }

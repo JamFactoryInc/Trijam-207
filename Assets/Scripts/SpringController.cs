@@ -16,10 +16,10 @@ public class SpringController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         var rotationz = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
-        col.rigidbody.velocity = rotate(new Vector2(0, impulse), rotationz);
+        col.GetComponent<Rigidbody2D>().velocity = rotate(new Vector2(0, impulse), rotationz);
 
         if (col.gameObject.CompareTag("Lemming"))
         {
@@ -27,7 +27,7 @@ public class SpringController : MonoBehaviour
         }
     }
 
-    
+
     public static Vector2 rotate(Vector2 v, float delta) {
         return new Vector2(
             v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),

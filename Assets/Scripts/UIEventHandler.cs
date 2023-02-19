@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIEventHandler : MonoBehaviour
 {
@@ -18,13 +19,21 @@ public class UIEventHandler : MonoBehaviour
 
     public void Pause()
     {
+        Debug.Log("hello");
         LemmingController.Pause();
         PlaceableObject.placingEnabled = true;
     }
 
     public void Play()
     {
+        Debug.Log("hello");
         LemmingController.Resume();
         PlaceableObject.placingEnabled = false;
+    }
+
+    public void restart()
+    {
+        Debug.LogWarning("hello");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
     }
 }

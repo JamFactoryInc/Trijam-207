@@ -41,6 +41,11 @@ public class PlaceableObject : MonoBehaviour
                 castDirVect = Vector2.right;
                 break;
         }
+
+        if (tileCollider == null)
+        {
+            tileCollider = FindObjectOfType<TilemapCollider2D>();
+        }
     }
 
     // Update is called once per frame
