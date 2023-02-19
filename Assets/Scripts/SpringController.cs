@@ -21,6 +21,10 @@ public class SpringController : MonoBehaviour
         var rotationz = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
         col.rigidbody.velocity = rotate(new Vector2(0, impulse), rotationz);
 
+        if (col.gameObject.CompareTag("Lemming"))
+        {
+            col.gameObject.GetComponent<LemmingController>().rightLeft *= -1;
+        }
     }
 
     

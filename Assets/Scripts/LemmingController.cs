@@ -24,7 +24,7 @@ public class LemmingController : MonoBehaviour
     private Animator _animator;
     private Collider2D _collider2D;
     private SpriteRenderer _renderer;
-    private int rightLeft = 1;
+    public int rightLeft = 1;
     // Start is called before the first frame update
     void Start()
     {
