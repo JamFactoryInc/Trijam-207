@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LemmingController : MonoBehaviour
 {
+    public AudioSource lemAudioDeath;
+    public AudioSource lemAudioWin;
 
     public static List<LemmingController> ctrls = new();
     public static void Pause()
@@ -96,11 +98,15 @@ public class LemmingController : MonoBehaviour
 
     public void Kill()
     {
+        lemAudioDeath.Play();
+
         Destroy(gameObject);
     }
 
     public void Victory()
     {
+        lemAudioWin.Play();
+
         Destroy(gameObject);
     }
 }

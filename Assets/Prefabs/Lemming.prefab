@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12e58911558ccc40804e2878be2af01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: 54d5d4edf8fd9d542827e12449127aae, type: 3}
+  winSound: {fileID: 8300000, guid: 79c9e4723e415e044836e874537b9e5b, type: 3}
+  rightLeft: 1
 --- !u!95 &1037964458
 Animator:
   serializedVersion: 4
