@@ -36,4 +36,9 @@ public class UIEventHandler : MonoBehaviour
         Debug.LogWarning("hello");
         SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
     }
+
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
 }
